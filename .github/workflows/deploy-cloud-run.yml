@@ -36,19 +36,22 @@ jobs:
         with:
           project_id: ${{ env.PROJECT_ID }}
 
-      # ---- 4. Configure Docker for Artifact Registry ----
-      - name: Configure Docker
-        run: gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev --quiet
-
-      # ---- 5. Build & Push Docker image ----
-      - name: Build and Push
+      # ---- 4. Build on Google Cloud Build (8 CPU, fast gRPC compile) ----
+      - name: Build & Push via Cloud Build
         run: |
           IMAGE="${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.AR_REPO }}/${{ env.SERVICE_NAME }}"
-          docker build -t "${IMAGE}:${{ github.sha }}" -t "${IMAGE}:latest" .
-          docker push "${IMAGE}:${{ github.sha }}"
-          docker push "${IMAGE}:latest"
+          gcloud builds submit \
+            --tag "${IMAGE}:${{ github.sha }}" \
+            --machine-type=e2-highcpu-8 \
+            --timeout=1800 \
+            --quiet
+          # Tag as latest
+          gcloud artifacts docker tags add \
+            "${IMAGE}:${{ github.sha }}" \
+            "${IMAGE}:latest" \
+            --quiet
 
-      # ---- 6. Deploy to Cloud Run ----
+      # ---- 5. Deploy to Cloud Run ----
       - name: Deploy to Cloud Run
         uses: google-github-actions/deploy-cloudrun@v2
         with:
