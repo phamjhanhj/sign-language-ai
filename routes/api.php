@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('content/version', [ContentSyncController::class, 'version']);
 Route::get('content/check-version', [ContentSyncController::class, 'checkVersion']);
 Route::get('content/bootstrap', [ContentSyncController::class, 'contentBootstrap']);
+Route::get('dictionary/data', [ContentSyncController::class, 'dictionaryBootstrap']);
 Route::get('dictionary/bootstrap', [ContentSyncController::class, 'dictionaryBootstrap']);
 Route::post('study-sessions/upload', [StudySessionController::class, 'upload']);
 
