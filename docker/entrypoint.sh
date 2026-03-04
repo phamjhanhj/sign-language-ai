@@ -11,6 +11,7 @@ if [ -n "$GOOGLE_CREDENTIALS_JSON" ]; then
 fi
 
 # --- Laravel bootstrap ---
+php artisan package:discover --ansi 2>/dev/null || true
 php artisan config:cache
 php artisan route:cache
 php artisan view:cache
