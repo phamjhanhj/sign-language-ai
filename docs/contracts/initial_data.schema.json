@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sign-language-ai.local/contracts/initial_data.schema.json",
+  "title": "Initial Learning Data",
+  "type": "object",
+  "required": ["system_info", "topics"],
+  "properties": {
+    "system_info": {
+      "type": "object",
+      "required": ["data_version", "last_updated"],
+      "properties": {
+        "data_version": { "type": "integer", "minimum": 1 },
+        "last_updated": { "type": "string", "format": "date-time" },
+        "description": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "topics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["cloud_id", "title", "order_index", "lessons"],
+        "properties": {
+          "cloud_id": { "type": "string", "minLength": 1 },
+          "title": { "type": "string", "minLength": 1 },
+          "description": { "type": "string" },
+          "thumbnail_url": { "type": "string" },
+          "order_index": { "type": "integer", "minimum": 0 },
+          "lessons": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["cloud_id", "title", "order_index", "questions"],
+              "properties": {
+                "cloud_id": { "type": "string", "minLength": 1 },
+                "title": { "type": "string", "minLength": 1 },
+                "description": { "type": "string" },
+                "order_index": { "type": "integer", "minimum": 0 },
+                "questions": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": ["cloud_id", "type", "video_url", "order_index"],
+                    "properties": {
+                      "cloud_id": { "type": "string", "minLength": 1 },
+                      "type": {
+                        "type": "string",
+                        "enum": ["learn", "choice", "arrange"]
+                      },
+                      "content_text": { "type": "string" },
+                      "video_url": { "type": "string", "minLength": 1 },
+                      "options": {
+                        "type": "array",
+                        "items": { "type": "string" }
+                      },
+                      "related_vocab_ids": {
+                        "type": "array",
+                        "items": { "type": "string" }
+                      },
+                      "order_index": { "type": "integer", "minimum": 0 }
+                    },
+                    "additionalProperties": true
+                  }
+                }
+              },
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

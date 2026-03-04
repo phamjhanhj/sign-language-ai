@@ -1,0 +1,69 @@
+{
+  "info": {
+    "name": "Sign Language AI - Generate Lessons",
+    "_postman_id": "5d80183c-902c-42db-bf80-f99218b2fe8a",
+    "description": "Collection mẫu để test endpoint generate 8 lesson tự động.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Generate 8 Lessons",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"vocabularies\": [\n    {\n      \"cloud_id\": \"voc_xin_chao\",\n      \"word\": \"Xin chào\",\n      \"video_url\": \"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4\",\n      \"definition\": \"Đưa tay lên thái dương rồi đẩy nhẹ ra phía trước.\"\n    },\n    {\n      \"cloud_id\": \"voc_tam_biet\",\n      \"word\": \"Tạm biệt\",\n      \"video_url\": \"https://assets.mixkit.co/videos/4119/4119-720.mp4\",\n      \"definition\": \"Giơ tay ngang vai và vẫy nhẹ.\"\n    },\n    {\n      \"cloud_id\": \"voc_cam_on\",\n      \"word\": \"Cảm ơn\",\n      \"video_url\": \"https://assets.mixkit.co/videos/1186/1186-720.mp4\",\n      \"definition\": \"Đưa ngón cái chạm cằm rồi đưa ra trước.\"\n    },\n    {\n      \"cloud_id\": \"voc_ban\",\n      \"word\": \"Bạn\",\n      \"video_url\": \"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4\",\n      \"definition\": \"Ký hiệu chỉ người đối diện.\"\n    },\n    {\n      \"cloud_id\": \"voc_ten\",\n      \"word\": \"Tên\",\n      \"video_url\": \"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4\",\n      \"definition\": \"Ký hiệu biểu đạt tên gọi.\"\n    },\n    {\n      \"cloud_id\": \"voc_la\",\n      \"word\": \"Là\",\n      \"video_url\": \"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4\",\n      \"definition\": \"Ký hiệu liên kết chủ ngữ và vị ngữ.\"\n    },\n    {\n      \"cloud_id\": \"voc_gi\",\n      \"word\": \"Gì\",\n      \"video_url\": \"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4\",\n      \"definition\": \"Ký hiệu cho từ nghi vấn.\"\n    },\n    {\n      \"cloud_id\": \"voc_toi\",\n      \"word\": \"Tôi\",\n      \"video_url\": \"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4\",\n      \"definition\": \"Ký hiệu đại từ ngôi thứ nhất.\"\n    }\n  ],\n  \"sentences\": [\n    {\n      \"text\": \"Bạn tên là gì\",\n      \"video_url\": \"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4\",\n      \"tokens\": [\n        \"Bạn\",\n        \"tên\",\n        \"là\",\n        \"gì\"\n      ],\n      \"related_vocab_ids\": [\n        \"voc_ban\",\n        \"voc_ten\",\n        \"voc_la\",\n        \"voc_gi\"\n      ]\n    },\n    {\n      \"text\": \"Tôi tên là Nam\",\n      \"video_url\": \"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4\",\n      \"tokens\": [\n        \"Tôi\",\n        \"tên\",\n        \"là\",\n        \"Nam\"\n      ],\n      \"related_vocab_ids\": [\n        \"voc_toi\",\n        \"voc_ten\",\n        \"voc_la\"\n      ]\n    },\n    {\n      \"text\": \"Xin chào bạn\",\n      \"video_url\": \"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4\",\n      \"tokens\": [\n        \"Xin\",\n        \"chào\",\n        \"bạn\"\n      ],\n      \"related_vocab_ids\": [\n        \"voc_xin_chao\",\n        \"voc_ban\"\n      ]\n    },\n    {\n      \"text\": \"Cảm ơn bạn\",\n      \"video_url\": \"https://assets.mixkit.co/videos/1186/1186-720.mp4\",\n      \"tokens\": [\n        \"Cảm\",\n        \"ơn\",\n        \"bạn\"\n      ],\n      \"related_vocab_ids\": [\n        \"voc_cam_on\",\n        \"voc_ban\"\n      ]\n    },\n    {\n      \"text\": \"Tạm biệt bạn\",\n      \"video_url\": \"https://assets.mixkit.co/videos/4119/4119-720.mp4\",\n      \"tokens\": [\n        \"Tạm\",\n        \"biệt\",\n        \"bạn\"\n      ],\n      \"related_vocab_ids\": [\n        \"voc_tam_biet\",\n        \"voc_ban\"\n      ]\n    }\n  ]\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/admin/learning-topics/{{topicCloudId}}/generate-lessons",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "admin",
+            "learning-topics",
+            "{{topicCloudId}}",
+            "generate-lessons"
+          ]
+        },
+        "description": "Generate và ghi đè 8 lessons cho 1 topic học."
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status is 201', function () {",
+              "  pm.response.to.have.status(201);",
+              "});",
+              "",
+              "pm.test('Response ok=true', function () {",
+              "  var json = pm.response.json();",
+              "  pm.expect(json.ok).to.eql(true);",
+              "  pm.expect(json.data.lesson_count).to.eql(8);",
+              "});"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://127.0.0.1:8000"
+    },
+    {
+      "key": "topicCloudId",
+      "value": "topic_01_chao_hoi"
+    }
+  ]
+}

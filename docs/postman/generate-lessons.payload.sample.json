@@ -1,0 +1,124 @@
+{
+  "vocabularies": [
+    {
+      "cloud_id": "voc_xin_chao",
+      "word": "Xin chào",
+      "video_url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+      "definition": "Đưa tay lên thái dương rồi đẩy nhẹ ra phía trước."
+    },
+    {
+      "cloud_id": "voc_tam_biet",
+      "word": "Tạm biệt",
+      "video_url": "https://assets.mixkit.co/videos/4119/4119-720.mp4",
+      "definition": "Giơ tay ngang vai và vẫy nhẹ."
+    },
+    {
+      "cloud_id": "voc_cam_on",
+      "word": "Cảm ơn",
+      "video_url": "https://assets.mixkit.co/videos/1186/1186-720.mp4",
+      "definition": "Đưa ngón cái chạm cằm rồi đưa ra trước."
+    },
+    {
+      "cloud_id": "voc_ban",
+      "word": "Bạn",
+      "video_url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+      "definition": "Ký hiệu chỉ người đối diện."
+    },
+    {
+      "cloud_id": "voc_ten",
+      "word": "Tên",
+      "video_url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+      "definition": "Ký hiệu biểu đạt tên gọi."
+    },
+    {
+      "cloud_id": "voc_la",
+      "word": "Là",
+      "video_url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+      "definition": "Ký hiệu liên kết chủ ngữ và vị ngữ."
+    },
+    {
+      "cloud_id": "voc_gi",
+      "word": "Gì",
+      "video_url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+      "definition": "Ký hiệu cho từ nghi vấn."
+    },
+    {
+      "cloud_id": "voc_toi",
+      "word": "Tôi",
+      "video_url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+      "definition": "Ký hiệu đại từ ngôi thứ nhất."
+    }
+  ],
+  "sentences": [
+    {
+      "text": "Bạn tên là gì",
+      "video_url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+      "tokens": [
+        "Bạn",
+        "tên",
+        "là",
+        "gì"
+      ],
+      "related_vocab_ids": [
+        "voc_ban",
+        "voc_ten",
+        "voc_la",
+        "voc_gi"
+      ]
+    },
+    {
+      "text": "Tôi tên là Nam",
+      "video_url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+      "tokens": [
+        "Tôi",
+        "tên",
+        "là",
+        "Nam"
+      ],
+      "related_vocab_ids": [
+        "voc_toi",
+        "voc_ten",
+        "voc_la"
+      ]
+    },
+    {
+      "text": "Xin chào bạn",
+      "video_url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+      "tokens": [
+        "Xin",
+        "chào",
+        "bạn"
+      ],
+      "related_vocab_ids": [
+        "voc_xin_chao",
+        "voc_ban"
+      ]
+    },
+    {
+      "text": "Cảm ơn bạn",
+      "video_url": "https://assets.mixkit.co/videos/1186/1186-720.mp4",
+      "tokens": [
+        "Cảm",
+        "ơn",
+        "bạn"
+      ],
+      "related_vocab_ids": [
+        "voc_cam_on",
+        "voc_ban"
+      ]
+    },
+    {
+      "text": "Tạm biệt bạn",
+      "video_url": "https://assets.mixkit.co/videos/4119/4119-720.mp4",
+      "tokens": [
+        "Tạm",
+        "biệt",
+        "bạn"
+      ],
+      "related_vocab_ids": [
+        "voc_tam_biet",
+        "voc_ban"
+      ]
+    }
+  ]
+}
