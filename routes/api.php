@@ -13,6 +13,10 @@ Route::get('content/check-version', [ContentSyncController::class, 'checkVersion
 Route::get('content/bootstrap', [ContentSyncController::class, 'contentBootstrap']);
 Route::get('dictionary/data', [ContentSyncController::class, 'dictionaryBootstrap']);
 Route::get('dictionary/bootstrap', [ContentSyncController::class, 'dictionaryBootstrap']);
+
+// ── Mobile endpoints ─────────────────────────────────────────
+Route::get('topics', [ContentSyncController::class, 'contentBootstrap']);
+Route::get('dictionary', [ContentSyncController::class, 'dictionaryBootstrap']);
 Route::post('study-sessions/upload', [StudySessionController::class, 'upload']);
 
 Route::prefix('admin')->group(function () {
