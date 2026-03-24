@@ -1,52 +1,104 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+	<img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo">
 </p>
 
-## About Laravel
+# Sign Language AI — Backend (Laravel 11 + Firestore)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<p align="center">
+	<b>Quản lý nội dung học & từ điển ngôn ngữ ký hiệu, đồng bộ với ứng dụng Flutter, tích hợp Firestore, API contract rõ ràng, CI/CD hiện đại.</b>
+</p>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Giới thiệu dự án
 
-## Learning Laravel
+Dự án **Sign Language AI** là hệ thống backend quản lý nội dung học tập và từ điển ngôn ngữ ký hiệu, phục vụ đồng bộ dữ liệu cho ứng dụng di động (Flutter). Hệ thống cung cấp:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+- API đồng bộ nội dung học, từ điển, tiến trình học của người dùng
+- Admin CMS quản trị chủ đề, bài học, từ vựng
+- Tích hợp Google Firestore làm nguồn dữ liệu chính
+- Quản lý version, kiểm tra checksum, publish nội dung an toàn
+- API contract rõ ràng, tài liệu chi tiết, test tự động
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Điểm nổi bật
 
-## Laravel Sponsors
+- **Clean Architecture**: Service Layer tách biệt, Controller gọn nhẹ, dễ maintain
+- **Firestore Integration**: Đồng bộ dữ liệu real-time, tối ưu cho mobile offline
+- **API Contract & Schema**: Tài liệu, JSON Schema, Postman collection đầy đủ
+- **CI/CD hiện đại**: GitHub Actions build & deploy Cloud Run, scripts kiểm thử tự động
+- **Testing & Quality**: Unit/Feature test, seeders, factories, scripts smoke test
+- **Scalable & Secure**: Chuẩn Laravel 11, phân quyền rõ ràng, dễ mở rộng
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Cấu trúc thư mục
 
-### Premium Partners
+```
+├── app/
+│   ├── Http/Controllers/Api/...
+│   ├── Http/Controllers/Admin/...
+│   └── Services/Firestore/...
+├── config/
+├── database/
+├── docs/ (API contract, schema, postman)
+├── public/
+├── resources/views/admin/
+├── routes/ (api.php, web.php)
+├── scripts/ (deploy, test, verify)
+├── tests/ (Feature, Unit)
+├── Dockerfile
+└── .github/workflows/
+```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## Công nghệ sử dụng
 
-## Contributing
+- **Laravel 11** (PHP 8.2)
+- **Google Cloud Firestore** (google/cloud-firestore)
+- **TailwindCSS, Vite** (frontend admin)
+- **GitHub Actions** (CI/CD)
+- **Docker** (Cloud Run ready)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Hướng dẫn cài đặt & chạy local
 
-## Code of Conduct
+```bash
+# 1. Clone source & cài đặt PHP, Composer, Node.js
+git clone https://github.com/your-org/sign-language-ai.git
+cd sign-language-ai
+
+# 2. Cài đặt backend
+composer install
+cp .env.example .env
+php artisan key:generate
+php artisan migrate
+
+# 3. Cài đặt frontend assets
+npm install
+npm run build
+
+# 4. Khởi động server
+php artisan serve
+
+# 5. Truy cập: http://127.0.0.1:8000/admin
+```
+
+## 🧪 Kiểm thử & scripts
+
+- Chạy toàn bộ test: `php artisan test`
+- Smoke test API: `./scripts/api_smoke_test.ps1`
+- Test tạo từ điển: `./scripts/test_dict_create.ps1`
+
+## 📄 Tài liệu & API Contract
+
+- [docs/step-01-firestore-schema-and-contract.md](docs/step-01-firestore-schema-and-contract.md)
+- [docs/contracts/](docs/contracts/)
+- [docs/postman/](docs/postman/)
+
+## Đóng góp & phát triển
+
+Pull request luôn được chào đón! Vui lòng đọc tài liệu, tuân thủ coding convention, viết test cho chức năng mới.
+
+## License
+
+MIT. Copyright © 2026
 
 In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
